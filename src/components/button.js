@@ -20,8 +20,9 @@ class CustomButton extends Component {
           <View
             style={{
               backgroundColor: COLOR.PANTOME,
-              height: 40,
+              height: 48,
               justifyContent: "center",
+              borderRadius: 24,
               alignItems: "center"
             }}>
             <Text
@@ -41,7 +42,8 @@ class CustomButton extends Component {
           style={{
             backgroundColor: COLOR.PANTOME,
             alignSelf: "stretch",
-            height: 40,
+            height: 48,
+            borderRadius: 24,
             justifyContent: "center",
             alignItems: "center"
           }}

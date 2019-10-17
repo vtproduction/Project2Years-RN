@@ -6,9 +6,11 @@ export default class Splash extends Component {
     return (
       <ImageBackground style={styles.background}
           source={require('./../../assets/bg.png')}>
-          <CustomButton
-            title='hehe'
-            onPress={() => null}/>
+          <View style={styles.container}>
+            <CustomButton
+              title='hehe'
+              onPress={() => null} />
+          </View>
       </ImageBackground>
     )
   }
@@ -17,11 +19,11 @@ export default class Splash extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black"
+    padding: 36,
+    justifyContent: 'center',
   },
   background: {
     flex: 1,
-    alignContent: "center",
     width: "100%",
     height: "100%"
   }
