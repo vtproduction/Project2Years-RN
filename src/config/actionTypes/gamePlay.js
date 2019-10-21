@@ -1,6 +1,0 @@
-export const NEXT_LEVEL = "NEXT_LEVEL"
-export const INCREASE_LIFE = "INCREASE_LIFE"
-export const DECREASE_LIFE = "DECREASE_LIFE"
-export const DECREASE_HELP = "DECREASE_HELP"
-export const END_GAME = "END_GAME"
-export const RESET_GAME = "RESET_GAME"

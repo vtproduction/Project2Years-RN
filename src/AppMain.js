@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import {StyleSheet, View,Text} from 'react-native'
-import Splash from './screens/Splash'
+import AppContainer from './config/routes';
+import Splash from './screens/Splash';
 
 
 export default class Index extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Splash/>
-      </View>    
+      <AppContainer/>    
     )
   }
 }

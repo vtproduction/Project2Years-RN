@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
-import {StyleSheet, View, ImageBackground, Text} from 'react-native'
+import {StyleSheet, View, ImageBackground, Text, Alert} from 'react-native'
 import CustomButton from '../components/button'
+import * as Controller from '../controllers/GameController'
+
+
 export default class Splash extends Component {
+
+  onStartBtnPress = () =>{
+    const {navigation} = this.props
+    Controller.SplashRouting(navigation, this.showAddLiveDialogs)
+  }
+
+  showAddLiveDialogs = () => {
+  }
+
   render() {
     return (
       <ImageBackground style={styles.background}
@@ -9,7 +21,7 @@ export default class Splash extends Component {
           <View style={styles.container}>
             <CustomButton
               title='hehe'
-              onPress={() => null} />
+            onPress={this.onStartBtnPress} />
           </View>
       </ImageBackground>
     )

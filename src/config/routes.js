@@ -11,21 +11,37 @@ import AddLifeInstruction from '../screens/AddLifeInstruction';
 import Splash from '../screens/Splash';
 
 
-const GameScreens = createStackNavigator(
+const AddLifeScreens = createStackNavigator(
   {
-    GameMap: {screen: GameMap}
+    Instruction: { screen: AddLifeInstruction }
   }
 )
 
-const AddLifeScreens = createStackNavigator(
+
+const GameScreens = createStackNavigator(
   {
-    Instruction: {screen: AddLifeInstruction}
+    GameMap: {
+      screen: GameMap,
+      navigationOptions: {
+        header: null
+      }},
+    AddLifeScreens: { 
+      screen: AddLifeScreens,
+      navigationOptions: {
+        header: null
+      } }
   }
 )
+
 
 const AppNavigator = createStackNavigator(
   {
-    Splash: {screen: Splash},
+    Splash: {
+      screen: Splash,
+      navigationOptions:{
+        header: null
+      }
+    },
     GameScreens: { screen: GameScreens },
     AddLifeScreens: { screen: AddLifeScreens },
   },{

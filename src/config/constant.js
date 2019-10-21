@@ -1,0 +1,1 @@
+export const AS_KEY_GAME_DATA = "AS_KEY_GAME_DATA"
