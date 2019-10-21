@@ -2,12 +2,12 @@ import { AsyncStorage } from "react-native";
 import * as AppConstant from '../config/constant'
 import DataSource from './DataSource'
 
-const MAX_LIVE = 3
+const MAX_LIVE = 5
 const MAX_STAGE = DataSource.length
 const MAX_HELP = 3
 
 const InitialGameData = {
-  lives: 0,
+  lives: MAX_LIVE,
   currentStage: 1,
   maxStage: MAX_STAGE,
   isComplete: false,

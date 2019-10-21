@@ -1,7 +1,8 @@
 import * as GameData from "../model/GameData";
 
 export async function SplashRouting(navigation, showAddLiveDialogs) {
-  const gameData = GameData.getGameData()
+  await GameData.setDefaultGameData()
+  const gameData = await GameData.getGameData()
 
   if (gameData.lives == 0) {
     showAddLiveDialogs()

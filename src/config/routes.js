@@ -13,7 +13,12 @@ import Splash from '../screens/Splash';
 
 const AddLifeScreens = createStackNavigator(
   {
-    Instruction: { screen: AddLifeInstruction }
+    Instruction: { 
+      screen: AddLifeInstruction,
+      navigationOptions: {
+        header: null
+      } 
+    }
   }
 )
 
@@ -42,8 +47,18 @@ const AppNavigator = createStackNavigator(
         header: null
       }
     },
-    GameScreens: { screen: GameScreens },
-    AddLifeScreens: { screen: AddLifeScreens },
+    GameScreens: { 
+      screen: GameScreens,
+      navigationOptions: {
+        header: null
+      } 
+    },
+    AddLifeScreens: { 
+      screen: AddLifeScreens,
+      navigationOptions: {
+        header: null
+      } 
+    },
   },{
     initialRouteName: 'Splash'
   }

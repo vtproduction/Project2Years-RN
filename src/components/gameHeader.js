@@ -8,7 +8,11 @@ export default function GameHeader({nav, gameData}) {
   var lives = []
 
   onAddLivesBtnClicked = () => {
-    nav.navigate('')
+    nav.navigate('AddLifeScreens')
+  }
+
+  onBackBtnClicked = () => {
+    nav.pop()
   }
 
   for (let i = 0; i < gameData.lives; i++) {
@@ -19,12 +23,12 @@ export default function GameHeader({nav, gameData}) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.onBackBtnClicked}>
         <Image source={require('../../assets/backbutton.png')} style={styles.image}/>
       </TouchableOpacity>
       <View style={styles.rightContainer}>
         {lives}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.onAddLivesBtnClicked}>
           <Image source={require('../../assets/add_live_button.png')} style={styles.image}/>
         </TouchableOpacity>
       </View>
@@ -34,6 +38,9 @@ export default function GameHeader({nav, gameData}) {
 
 const styles = StyleSheet.create({
   container: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 60,
     height: 40,
     flexDirection: 'row',
     justifyContent: 'space-between'
