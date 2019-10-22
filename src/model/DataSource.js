@@ -58,4 +58,13 @@ export default DataSource = [
     ],
     answer: [2, 1, 0, 3]
   },
+  {
+    id: 7,
+    title: 'Title 7',
+    type: RE_ARRANGE,
+    content: [
+      'asset11_1.png', 'asset11_2.png', 'asset11_3.png', 'asset11_4.png',
+    ],
+    answer: [2, 1, 0, 3]
+  },
 ]

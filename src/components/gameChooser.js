@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, Image, StyleSheet} from 'react-native'
+import { View, TouchableOpacity, Text, Image, StyleSheet,Dimensions} from 'react-native'
 import PropTypes from 'prop-types';
 
+
+// screen sizing
+const { width, height } = Dimensions.get('window');
+// orientation must fixed
+const SCREEN_WIDTH = width < height ? width : height;
+// const SCREEN_HEIGHT = width < height ? height : width;
+const isSmallDevice = SCREEN_WIDTH <= 414;
+const numColumns = isSmallDevice ? 2 : 3;
+// item size
+const PRODUCT_ITEM_HEIGHT = 255;
+const PRODUCT_ITEM_OFFSET = 5;
+const PRODUCT_ITEM_MARGIN = PRODUCT_ITEM_OFFSET * 2;
 export default class GameChooser extends Component {
 
   constructor(props) {
@@ -22,7 +34,6 @@ export default class GameChooser extends Component {
   
   render() {
     const { stage, isLocked, onStageClicked} = this.props
-    console.log("render: ", this.props)
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.touchable} disabled={(isLocked < 0)} onPress={(isLocked < 0) ? null : onStageClicked}>
@@ -55,8 +66,8 @@ GameChooser.defaultProps = {
 
 const styles = StyleSheet.create({
   container: {
-    width: 100,
-    height: 100,
+    width: (width - 20) / 3,
+    height: (width - 20) / 3,
     justifyContent: 'center'
   },
   
@@ -69,6 +80,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     justifyContent: 'center',
+    alignSelf: 'center'
   },
   image: {
     width: 100,

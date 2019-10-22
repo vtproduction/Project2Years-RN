@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, ImageBackground, Text, SafeAreaView, FlatList } from 'react-native'
+import { StyleSheet, 
+  View, 
+  ImageBackground, 
+  SafeAreaView, 
+  FlatList, Dimensions } from 'react-native'
 import * as GameData from '../model/GameData'
 import GameHeader from '../components/gameHeader'
 import CustomButton from '../components/button'
 import DataSource from '../model/DataSource'
 import GameChooser from '../components/gameChooser'
 
-const keyExtractor = ({ id }) => id
+
 
 export class GameMap extends Component {
   
@@ -14,7 +18,7 @@ export class GameMap extends Component {
     super(props)
     const dataSource = DataSource
     this.state = {
-      gameData : {},
+      gameData : {isComplete: false},
       dataSource,
       loading: true
     };
@@ -31,14 +35,14 @@ export class GameMap extends Component {
   renderGameChooser = (game) => {    
     const { gameData } = this.state
     let locked = gameData.currentStage - game.id
-    console.log("renderGameChooser: ", locked)
     return <GameChooser stage={game.id} isLocked={locked} onStageClicked={() => null}/>
   }
+
+  
 
   render() {
     const { navigation } = this.props
     const { gameData, dataSource, loading} = this.state
-    
     return (
       <SafeAreaView style={{flex: 1}}>
         <ImageBackground style={styles.background}
@@ -50,6 +54,7 @@ export class GameMap extends Component {
             <View style={styles.list}>
               {(!loading) && (
                 <FlatList
+                style={styles.flatlist}
                 numColumns={3}
                 data={dataSource}
                 keyExtractor={item => item.id}
@@ -58,11 +63,13 @@ export class GameMap extends Component {
               />
               )}
             </View>
-            <View style={styles.bottom}>
-              <CustomButton 
-                title="show result" 
-                onPress={() => null} />
-            </View>
+            {(gameData.isComplete) &&
+              <View style={styles.bottom}>
+                <CustomButton 
+                  title="show result" 
+                  onPress={() => null} />
+              </View>
+            }
           </View>
         </ImageBackground>
       </SafeAreaView>
@@ -81,7 +88,13 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   list: {
-    flex: 1
+    flex: 1,
+    
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  flatlist: {
+    
   },
   bottom: {
     marginLeft: 40,
