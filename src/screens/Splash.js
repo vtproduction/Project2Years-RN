@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {StyleSheet, View, ImageBackground, Text, Alert} from 'react-native'
 import CustomButton from '../components/button'
 import * as Controller from '../controllers/GameController'
+import GameChooser from '../components/gameChooser'
 
 
 export default class Splash extends Component {
@@ -19,6 +20,7 @@ export default class Splash extends Component {
       <ImageBackground style={styles.background}
           source={require('./../../assets/bg.png')}>
           <View style={styles.container}>
+          
             <CustomButton
               title='hehe'
             onPress={this.onStartBtnPress} />

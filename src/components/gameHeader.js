@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function GameHeader({nav, gameData}) {
-  
-  console.log("GameHeader1: ", nav)
-  console.log("GameHeader2: ", gameData)
   var lives = []
 
   onAddLivesBtnClicked = () => {
